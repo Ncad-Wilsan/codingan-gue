@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudahnya Belajar Python untuk Pemula</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0.5em;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 2em;
+        }
+
+        #exercise-container, #quiz-container {
+            margin-top: 2em;
+        }
+
+        #exercise-container .exercise, #quiz-container .quiz {
+            background-color: #e9e9e9;
+            padding: 1em;
+            margin-bottom: 1em;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            header, footer {
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 0.5em 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mudahnya Belajar Python untuk Pemula</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#material">Material</a></li>
+                <li><a href="#exercises">Exercises</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Welcome to Python Learning</h2>
+        <p>This website will guide you through the basics of Python programming with interactive exercises and clear examples.</p>
+    </section>
+
+    <section id="material">
+        <h2>Learning Material</h2>
+        <article>
+            <h3>Level 1: Introduction to Python</h3>
+            <p>Python is a versatile programming language that is easy to learn and fun to use. It is widely used for web development, data analysis, scientific computing, artificial intelligence, and more.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>print("Hello, World!")</code></pre>
+        </article>
+        <article>
+            <h3>Level 2: Basic Syntax</h3>
+            <p>The basic syntax of Python is straightforward and easy to understand. Statements are written in a single line and code blocks are defined by indentation.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>x = 5
+if x > 0:
+    print("x is positive")</code></pre>
+        </article>
+        <article>
+            <h3>Level 3: Data Types and Variables</h3>
+            <p>Python supports various data types including integers, floats, strings, lists, tuples, and dictionaries. Variables can store data and can be of any data type.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>x = 10
+y = 3.14
+name = "Alice"
+numbers = [1, 2, 3]</code></pre>
+        </article>
+        <article>
+            <h3>Level 4: Functions</h3>
+            <p>Functions are reusable blocks of code that perform a specific task. They are defined using the <code>def</code> keyword.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>def add(a, b):
+    return a + b
+
+result = add(2, 3)
+print(result)</code></pre>
+        </article>
+        <article>
+            <h3>Level 5: Lists</h3>
+            <p>Lists are ordered collections of items. They are mutable, meaning their contents can be changed.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>fruits = ["apple", "banana", "cherry"]
+print(fruits[1])  # Output: banana
+fruits.append("date")
+print(fruits)  # Output: ['apple', 'banana', 'cherry', 'date']</code></pre>
+        </article>
+        <article>
+            <h3>Level 6: Loops</h3>
+            <p>Loops are used to repeat a block of code multiple times. Python supports <code>for</code> loops and <code>while</code> loops.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>for i in range(5):
+    print(i)  # Output: 0 1 2 3 4
+
+count = 0
+while count < 5:
+    print(count)
+    count += 1  # Output: 0 1 2 3 4</code></pre>
+        </article>
+        <article>
+            <h3>Level 7: Dictionaries</h3>
+            <p>Dictionaries are collections of key-value pairs. They are mutable and can store any type of data.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>person = {"name": "Alice", "age": 25}
+print(person["name"])  # Output: Alice
+person["age"] = 26
+print(person)  # Output: {'name': 'Alice', 'age': 26}</code></pre>
+        </article>
+        <article>
+            <h3>Level 8: Classes and Objects</h3>
+            <p>Classes are blueprints for creating objects. Objects are instances of classes and can have attributes and methods.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def bark(self):
+        return "Woof!"
+
+my_dog = Dog("Buddy", 3)
+print(my_dog.name)  # Output: Buddy
+print(my_dog.bark())  # Output: Woof!</code></pre>
+        </article>
+        <article>
+            <h3>Level 9: File I/O</h3>
+            <p>Python allows you to read from and write to files. This is useful for storing data persistently.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code># Writing to a file
+with open("example.txt", "w") as file:
+    file.write("Hello, World!")
+
+# Reading from a file
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)  # Output: Hello, World!</code></pre>
+        </article>
+        <article>
+            <h3>Level 10: Exception Handling</h3>
+            <p>Exception handling allows you to manage errors in your program gracefully using <code>try</code>, <code>except</code>, <code>else</code>, and <code>finally</code> blocks.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+else:
+    print("Division successful")
+finally:
+    print("Execution finished")</code></pre>
+        </article>
+        <article>
+            <h3>Level 11: Modules and Packages</h3>
+            <p>Modules are files containing Python code, and packages are directories containing multiple modules. They help organize your code.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code># math_module.py
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+# main.py
+import math_module
+
+result = math_module.add(5, 3)
+print(result)  # Output: 8</code></pre>
+        </article>
+        <article>
+            <h3>Level 12: GUI Programming</h3>
+            <p>Python provides libraries like Tkinter to create graphical user interfaces (GUIs).</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>import tkinter as tk
+
+def greet():
+    print("Hello, World!")
+
+root = tk.Tk()
+greet_button = tk.Button(root, text="Greet", command=greet)
+greet_button.pack()
+
+root.mainloop()</code></pre>
+        </article>
+        <article>
+            <h3>Level 13: Web Scraping</h3>
+            <p>Web scraping involves extracting data from websites. Python's <code>requests</code> and <code>BeautifulSoup</code> libraries are commonly used for this purpose.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>import requests
+from bs4 import BeautifulSoup
+
+url = "http://example.com"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html.parser')
+
+print(soup.title.text)  # Output: Example Domain</code></pre>
+        </article>
+        <article>
+            <h3>Level 14: Game Development</h3>
+            <p>Python's Pygame library can be used to create simple games. It provides functionalities for rendering graphics, handling events, and more.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>import pygame
+
+# Initialize the game
+pygame.init()
+
+# Set up display
+window = pygame.display.set_mode((500, 500))
+
+# Main game loop
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    window.fill((255, 255, 255))
+    pygame.display.flip()
+
+pygame.quit()</code></pre>
+        </article>
+        <article>
+            <h3>Level 15: Database Connectivity</h3>
+            <p>Python can connect to databases to store and retrieve data. The <code>sqlite3</code> module is commonly used for SQLite databases.</p>
+            <p><strong>Example:</strong></p>
+            <pre><code>import sqlite3
+
+# Connect to database (or create it)
+conn = sqlite3.connect('example.db')
+
+# Create a cursor
+cur = conn.cursor()
+
+# Create a table
+cur.execute('''CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)''')
+
+# Insert data
+cur.execute("INSERT INTO users (name) VALUES ('Alice')")
+conn.commit()
+
+# Retrieve data
+cur.execute("SELECT * FROM users")
+print(cur.fetchall())  # Output: [(1, 'Alice')]
+
+conn.close()</code></pre>
+        </article>
+    </section>
+
+    <section id="exercises">
+        <h2>Python Exercises</h2>
+        <div id="exercise-container">
+        </div>
+    </section>
+
+    <section id="quiz">
+        <h2>Python Quiz</h2>
+        <div id="quiz-container">
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>For any inquiries, please <a href="mailto:info@pythonlearning.com">email us</a>.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Learn Python for Beginners</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const exerciseContainer = document.getElementById('exercise-container');
+            const quizContainer = document.getElementById('quiz-container');
+
+            const exercises = [
+                { level: 1, question: "Print 'Hello, World!'", hint: "Use the print() function." },
+                { level: 2, question: "Create a variable 'x' and assign it the value 5.", hint: "Use x = 5." },
+                { level: 3, question: "Write a function to add two numbers.", hint: "Define a function using def." },
+                { level: 4, question: "Create a list of your favorite fruits.", hint: "Use square brackets to define a list." },
+                { level: 5, question: "Write a loop to print numbers from 1 to 10.", hint: "Use a for loop." },
+                { level: 6, question: "Create a dictionary with some key-value pairs.", hint: "Use curly braces to define a dictionary." },
+                { level: 7, question: "Write a class representing a simple object.", hint: "Use the class keyword." },
+                { level: 8, question: "Implement a basic calculator.", hint: "Use functions to perform basic arithmetic operations." },
+                { level: 9, question: "Write a script to read a file.", hint: "Use the open() function to read a file." },
+                { level: 10, question: "Create a function to check if a number is prime.", hint: "Check divisibility within a loop." },
+                { level: 11, question: "Write a program to sort a list of numbers.", hint: "Use the sort() method or sorted() function." },
+                { level: 12, question: "Create a simple GUI application using Tkinter.", hint: "Use the tkinter module." },
+                { level: 13, question: "Write a program to scrape a website.", hint: "Use the requests and BeautifulSoup libraries." },
+                { level: 14, question: "Implement a basic game using Pygame.", hint: "Use the pygame module." },
+                { level: 15, question: "Write a script to connect to a database and run a query.", hint: "Use the sqlite3 module for SQLite databases." }
+            ];
+
+            const quizzes = [
+                { level: 1, question: "What is the output of print('Hello, World!')?", options: ["Hello, World!", "hello world", "Hello World", "HELLO, WORLD!"], answer: "Hello, World!" },
+                { level: 2, question: "How do you create a variable 'x' with the value 5?", options: ["int x = 5", "x = 5", "let x = 5", "x := 5"], answer: "x = 5" },
+                { level: 3, question: "Which keyword is used to define a function in Python?", options: ["func", "function", "def", "define"], answer: "def" },
+                { level: 4, question: "How do you create a list in Python?", options: ["{}", "[]", "()", "<>"], answer: "[]" },
+                { level: 5, question: "Which loop is used to iterate over a sequence of numbers?", options: ["while", "for", "loop", "foreach"], answer: "for" },
+                { level: 6, question: "How do you create a dictionary in Python?", options: ["[]", "{}", "()", "<>"], answer: "{}" },
+                { level: 7, question: "Which keyword is used to define a class in Python?", options: ["class", "Class", "define", "object"], answer: "class" },
+                { level: 8, question: "How do you call a function in Python?", options: ["call functionName()", "functionName()", "invoke functionName()", "run functionName()"], answer: "functionName()" },
+                { level: 9, question: "Which function is used to open a file in Python?", options: ["openFile()", "readFile()", "open()", "read()"], answer: "open()" },
+                { level: 10, question: "How do you check if a number is divisible by another number?", options: ["% operator", "/ operator", "// operator", "** operator"], answer: "% operator" },
+                { level: 11, question: "Which method is used to sort a list in Python?", options: ["sort()", "order()", "arrange()", "sorted()"], answer: "sort()" },
+                { level: 12, question: "Which module is used to create a GUI in Python?", options: ["gui", "tkinter", "pygame", "qt"], answer: "tkinter" },
+                { level: 13, question: "Which library is used to send HTTP requests in Python?", options: ["http", "requests", "beautifulsoup", "scrapy"], answer: "requests" },
+                { level: 14, question: "Which library is used to create games in Python?", options: ["gamepy", "tkinter", "pygame", "gamekit"], answer: "pygame" },
+                { level: 15, question: "Which module is used to connect to SQLite databases in Python?", options: ["sqlite", "database", "sql", "sqlite3"], answer: "sqlite3" }
+            ];
+
+            exercises.forEach(exercise => {
+                const exerciseDiv = document.createElement('div');
+                exerciseDiv.classList.add('exercise');
+
+                const question = document.createElement('p');
+                question.textContent = `Level ${exercise.level}: ${exercise.question}`;
+
+                const hint = document.createElement('p');
+                hint.textContent = `Hint: ${exercise.hint}`;
+
+                exerciseDiv.appendChild(question);
+                exerciseDiv.appendChild(hint);
+
+                exerciseContainer.appendChild(exerciseDiv);
+            });
+
+            quizzes.forEach(quiz => {
+                const quizDiv = document.createElement('div');
+                quizDiv.classList.add('quiz');
+
+                const question = document.createElement('p');
+                question.textContent = `Level ${quiz.level}: ${quiz.question}`;
+
+                quizDiv.appendChild(question);
+
+                quiz.options.forEach(option => {
+                    const optionLabel = document.createElement('label');
+                    const optionInput = document.createElement('input');
+                    optionInput.type = 'radio';
+                    optionInput.name = `quiz${quiz.level}`;
+                    optionInput.value = option;
+
+                    optionLabel.appendChild(optionInput);
+                    optionLabel.appendChild(document.createTextNode(option));
+                    quizDiv.appendChild(optionLabel);
+                    quizDiv.appendChild(document.createElement('br'));
+                });
+
+                const feedback = document.createElement('p');
+                feedback.classList.add('feedback');
+                feedback.style.display = 'none';
+                quizDiv.appendChild(feedback);
+
+                quizContainer.appendChild(quizDiv);
+
+                quizDiv.addEventListener('change', function(event) {
+                    const selectedOption = event.target.value;
+                    feedback.style.display = 'block';
+                    if (selectedOption === quiz.answer) {
+                        feedback.textContent = 'Correct!';
+                        feedback.style.color = 'green';
+                    } else {
+                        feedback.textContent = `Wrong. The correct answer is: ${quiz.answer}`;
+                        feedback.style.color = 'red';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
