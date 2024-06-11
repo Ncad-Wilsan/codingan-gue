@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Industri Proses Teknik Kimia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .item {
+            width: 30%;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Simulasi Industri Proses Teknik Kimia</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="item">
+                <h2>Unsur Kimia</h2>
+                <p>Berikut adalah beberapa unsur kimia yang sering digunakan dalam industri proses:</p>
+                <ul>
+                    <li>Carbon (C)</li>
+                    <li>Hydrogen (H)</li>
+                    <li>Oxygen (O)</li>
+                    <li>Nitrogen (N)</li>
+                    <!-- Tambahan unsur kimia dapat dimasukkan melalui form -->
+                </ul>
+                <form id="addElementForm">
+                    <label for="element">Tambah Unsur Kimia Baru:</label>
+                    <input type="text" id="element" name="element">
+                    <button type="submit">Tambah</button>
+                </form>
+            </div>
+            <div class="item">
+                <h2>Alat Industri Proses</h2>
+                <p>Berikut adalah beberapa alat yang digunakan dalam industri proses:</p>
+                <ul>
+                    <li>Reaktor</li>
+                    <li>Kolom Distilasi</li>
+                    <li>Pompa</li>
+                    <li>Scrubber</li>
+                    <!-- Tambahan alat industri proses dapat dimasukkan melalui form -->
+                </ul>
+                <form id="addEquipmentForm">
+                    <label for="equipment">Tambah Alat Baru:</label>
+                    <input type="text" id="equipment" name="equipment">
+                    <button type="submit">Tambah</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('addElementForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const elementInput = document.getElementById('element');
+            const newElement = elementInput.value.trim();
+            if (newElement !== '') {
+                const elementList = document.createElement('li');
+                elementList.textContent = newElement;
+                document.querySelector('.item:nth-child(1) ul').appendChild(elementList);
+                elementInput.value = '';
+            }
+        });
+
+        document.getElementById('addEquipmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const equipmentInput = document.getElementById('equipment');
+            const newEquipment = equipmentInput.value.trim();
+            if (newEquipment !== '') {
+                const equipmentList = document.createElement('li');
+                equipmentList.textContent = newEquipment;
+                document.querySelector('.item:nth-child(2) ul').appendChild(equipmentList);
+                equipmentInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
