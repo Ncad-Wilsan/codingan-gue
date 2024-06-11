@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Coding Python untuk Siswa SD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        #instructions {
+            margin-bottom: 20px;
+        }
+        
+        #editor {
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        #output {
+            margin-top: 20px;
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.4.12/src-min-noconflict/ace.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Belajar Coding Python Untuk Siswa SD</h1>
+        <p>Level: <span id="levelNumber">1</span></p>
+        <p id="instructions">Instruksi: Cetak "Hello, World!"</p>
+        <div id="editor"></div>
+        <button id="runButton">Jalankan</button>
+        <pre id="output"></pre>
+        <button id="nextLevelButton" style="display:none;">Level Selanjutnya</button>
+    </div>
+
+    <script>
+        const levels = [
+            { level: 1, instructions: 'Cetak "Hello, World!"', solution: 'print("Hello, World!")' },
+            { level: 2, instructions: 'Cetak hasil dari 2 + 3', solution: 'print(2 + 3)' },
+            { level: 3, instructions: 'Cetak nama Anda menggunakan variabel', solution: 'name = "Nama Anda"\nprint(name)' },
+            { level: 4, instructions: 'Cetak bilangan 1 sampai 5 menggunakan loop', solution: 'for i in range(1, 6):\n    print(i)' },
+            { level: 5, instructions: 'Cetak perkalian 2 hingga 10', solution: 'for i in range(1, 11):\n    print(f"2 x {i} = {2 * i}")' },
+        ];
+
+        let currentLevel = 0;
+
+        const editor = ace.edit("editor");
+        editor.session.setMode("ace/mode/python");
+
+        async function loadPyodideAndPackages() {
+            const pyodide = await loadPyodide();
+            return pyodide;
+        }
+
+        let pyodideReadyPromise = loadPyodideAndPackages();
+
+        document.getElementById('runButton').addEventListener('click', async function() {
+            const userCode = editor.getValue();
+            const outputElement = document.getElementById('output');
+            const instructionsElement = document.getElementById('instructions');
+            const levelData = levels[currentLevel];
+
+            outputElement.textContent = 'Menjalankan...';
+            try {
+                const pyodide = await pyodideReadyPromise;
+                pyodide.runPythonAsync(`
+                    import sys
+                    from io import StringIO
+
+                    code = ${JSON.stringify(userCode)}
+
+                    # Redirect stdout
+                    old_stdout = sys.stdout
+                    sys.stdout = mystdout = StringIO()
+
+                    exec(code)
+
+                    sys.stdout = old_stdout
+                    mystdout.getvalue()
+                `).then((result) => {
+                    outputElement.textContent = result;
+                    if (userCode.trim() === levelData.solution) {
+                        instructionsElement.textContent = 'Jawaban Anda benar!';
+                        document.getElementById('nextLevelButton').style.display = 'block';
+                    } else {
+                        instructionsElement.textContent = 'Jawaban Anda belum benar. Coba lagi!';
+                    }
+                }).catch((error) => {
+                    outputElement.textContent = `Error: ${error.message}`;
+                });
+            } catch (e) {
+                outputElement.textContent = `Error: ${e.message}`;
+            }
+        });
+
+        document.getElementById('nextLevelButton').addEventListener('click', function() {
+            currentLevel++;
+            if (currentLevel < levels.length) {
+                loadLevel(currentLevel);
+            } else {
+                document.getElementById('instructions').textContent = 'Selamat! Anda telah menyelesaikan semua level!';
+                document.getElementById('nextLevelButton').style.display = 'none';
+            }
+        });
+
+        function loadLevel(levelIndex) {
+            const levelData = levels[levelIndex];
+            document.getElementById('levelNumber').textContent = levelData.level;
+            document.getElementById('instructions').textContent = levelData.instructions;
+            editor.setValue('');
+            document.getElementById('output').textContent = '';
+            document.getElementById('nextLevelButton').style.display = 'none';
+        }
+
+        loadLevel(currentLevel);
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+usia = input('berapa usia kamu ')
+# == sama dengan, != tidak sama dengan, sisanya sama
+
+if usia >= str("20") and usia <= str("30"):
+    print('yomann lu udah masuk standart kita')
+elif usia > str("30"):
+    print('yomann lu ketuaan')
+else:
+    print('ga cukup umur')

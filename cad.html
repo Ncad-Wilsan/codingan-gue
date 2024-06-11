@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Terbaik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+        }
+        /* Teks Responsif */
+        h1 {
+            font-size: 5vw;
+        }
+        /* Gambar Responsif */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* Formulir Kontak */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        .contact-form button {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        /* Slider Gambar */
+        .slider {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            height: 300px;
+        }
+        .slider img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        .slider:hover img {
+            transform: scale(1.1);
+        }
+        /* Animasi CSS */
+        .animated-element {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Website Terbaik</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Tentang</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Selamat Datang</h2>
+            <p>Ini adalah contoh website yang responsif dan modern.</p>
+            <!-- Gambar Responsif -->
+            <picture>
+                <source media="(min-width: 650px)" srcset="img_pink_flowers.jpg">
+                <source media="(min-width: 465px)" srcset="img_white_flower.jpg">
+                <img src="img_orange_flowers.jpg" alt="Flowers" style="width:auto;">
+            </picture>
+            <!-- Formulir Kontak -->
+            <form class="contact-form">
+                <input type="text" placeholder="Nama Anda">
+                <input type="email" placeholder="Email Anda">
+                <textarea placeholder="Pesan Anda"></textarea>
+                <button type="submit">Kirim Pesan</button>
+            </form>
+            <!-- Slider Gambar -->
+            <div class="slider">
+                <img src="img_slider_1.jpg" alt="Slider 1">
+                <img src="img_slider_2.jpg" alt="Slider 2">
+                <img src="img_slider_3.jpg" alt="Slider 3">
+            </div>
+            <!-- Galeri Foto dengan Lightbox -->
+            <div class="wrapper">
+                <div class="thumb">
+                    <a href="photos/01.jpg" data-lightbox="image-grid" data-title="Hay Bales I love hay bales. Took this snap on a drive through the countryside past some straw fields."><img src="photos/thumbnails/01.jpg" alt="Hay Bales, Straw Fields"></a>
+                </div>
+                <!-- Tambahkan lebih banyak gambar -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Website Terbaik. Semua hak dilindungi.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/lightbox.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        // Interaksi dengan JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.addEventListener('mousemove', function(e) {
+                document.body.style.backgroundColor = `rgb(${e.clientX}, ${e.clientY}, 100)`;
+            });
+        });
+    </script>
+</body>
+</html>

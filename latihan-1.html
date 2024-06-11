@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Ulang Mahasiswa Baru</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #responseMessage {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pendaftaran Ulang Mahasiswa Baru</h1>
+        <form id="registrationForm">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="nim">NIM:</label>
+            <input type="text" id="nim" name="nim" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Nomor Telepon:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <button type="submit">Daftar</button>
+        </form>
+        <p id="responseMessage"></p>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const nim = document.getElementById('nim').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            const data = {
+                name: name,
+                nim: nim,
+                email: email,
+                phone: phone
+            };
+            
+            // Simulate API response
+            const fakeApiResponse = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (name && nim && email && phone) {
+                        resolve({ message: 'Pendaftaran berhasil!' });
+                    } else {
+                        reject({ message: 'Harap isi semua data!' });
+                    }
+                }, 1000);
+            });
+
+            fakeApiResponse
+                .then(response => {
+                    document.getElementById('responseMessage').textContent = response.message;
+                })
+                .catch(error => {
+                    document.getElementById('responseMessage').textContent = error.message;
+                });
+        });
+    </script>
+</body>
+</html>

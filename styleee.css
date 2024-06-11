@@ -1,0 +1,58 @@
+#parsatu {
+    border: solid blue;
+    font-size: 34px;
+    font-style: italic;
+}
+#pardua:hover {
+    border: solid yellow;
+    background-color: green;
+    color: black;
+    padding: 12px;
+    height: 34pt;
+    line-break: anywhere;
+    font-size: 23px;
+    font-style:italic;
+}
+.highlight {
+    border : solid pink;
+    background-color: black;
+    color : snow
+}
+a[href] {
+    background-color: blue;
+    border: solid red;
+    color: snow;
+    font-size: 22px;
+}
+a[download='search-engine.txt'] {
+    background-color: black;
+    color: snow;
+}
+a[download='seo.txt'] {
+    background-color: rgb(71, 0, 141);
+    color: snow;
+}
+
+#contanar > p {
+    background-color: yellow;
+}
+
+h1,
+h2,
+h3{
+    color: black;
+    font-style: italic;
+}
+
+h1:hover{
+    background-color: black;
+    color: white;
+    } 
+h2:hover{
+    background-color: black;
+    color: white;
+    } 
+h3:hover{
+background-color: black;
+color: white;
+}
